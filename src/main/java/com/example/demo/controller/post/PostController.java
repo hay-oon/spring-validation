@@ -23,12 +23,14 @@ public class PostController {
     CommentService commentService;
 
     @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<PostResponseDto> post(@PathVariable Integer id) {
         PostResponseDto post = postService.findById(id);
         return ResponseEntity.ok(post);
     }
 
     @GetMapping("")
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<List<PostResponseDto>> posts() {
         List<PostResponseDto> posts = postService.findAll();
         return ResponseEntity.ok(posts);
